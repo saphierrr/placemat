@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Indestructible Premium Placemat | Kickstarter Coming Soon</title>
+    <style>
+        /* Core Variables - Mid-Century Modern Palette */
+        :root {
+            --bg-color: #F7F5F0; /* Warm off-white */
+            --text-main: #2C3E35; /* Deep forest/charcoal */
+            --accent-color: #D96C4A; /* Terracotta / Burnt Orange */
+            --accent-hover: #BF5A3D;
+            --card-bg: #FFFFFF;
+            --secondary-bg: #E8E4D9; /* Lighter warm gray for section background */
+        }
+
+        /* Reset & Typography */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+        h1, h2, h3 {
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            padding: 160px 20px 100px; /* Adjusted bottom padding */
+            text-align: center;
+            background-image: url('header1.png'); 
+            background-size: cover;
+            background-position: center;
+            color: white; 
+            border-bottom: 2px solid #E0DCD0;
+        }
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(44, 62, 53, 0.4); 
+            z-index: 1;
+        }
+        .hero .container {
+            position: relative;
+            z-index: 2;
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            max-width: 800px;
+            margin: 0 auto 20px;
+            line-height: 1.1;
+        }
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            color: #E8E4D9; 
+        }
+
+        /* Main Campaign Video Section */
+        .campaign-video {
+            background-color: var(--bg-color);
+            padding: 40px 20px 0;
+            margin-top: -80px; /* Pulls video slightly up over the hero border */
+            position: relative;
+            z-index: 3;
+        }
+
+        /* Global Video Styling */
+        .responsive-video {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            background-color: #000; /* Fallback for loading */
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 16px 32px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .btn:hover {
+            background-color: var(--accent-hover);
+        }
+
+        /* The Problem / Solution Split */
+        .split-section {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            padding: 80px 0;
+            border-top: 1px solid #E0DCD0;
+        }
+        .split-text {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+        }
+        .split-image {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Reversed Split for alternating layout */
+        .split-reverse {
+            flex-direction: row-reverse;
+            border-top: none;
+            padding-top: 0;
+        }
+        @media (max-width: 768px) {
+            .split-reverse { flex-direction: column-reverse; }
+        }
+
+        /* Features Grid */
+        .features {
+            padding: 80px 0;
+            background-color: var(--secondary-bg); 
+            border-top: 1px solid #E0DCD0;
+            border-bottom: 1px solid #E0DCD0;
+            margin-bottom: 80px;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+        .feature-card {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--accent-color);
+        }
+
+        /* MANUFACTURING Section */
+        .manufacturing {
+            padding: 80px 0;
+            background-color: var(--bg-color); 
+            border-top: 1px solid #E0DCD0;
+        }
+        .manufacturing h2 {
+            text-align: center;
+            color: var(--accent-color);
+            margin-bottom: 60px;
+        }
+        .manuf-infographic {
+            text-align: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .manuf-infographic img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        /* Explore the Collection */
+        .explore-collection {
+            padding: 40px 0 80px; 
+            background-color: var(--secondary-bg); 
+        }
+        .explore-collection img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
+        }
+        .divider-line {
+            border: 0;
+            border-top: 1px solid #E0DCD0;
+            margin-bottom: 40px;
+        }
+
+        /* CTA Bottom */
+        .cta-bottom {
+            background-color: var(--text-main);
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
+        .cta-bottom h2 {
+            font-size: 2.5rem;
+        }
+        .cta-bottom .btn {
+            margin-top: 20px;
+            background-color: white;
+            color: var(--text-main);
+        }
+        .cta-bottom .btn:hover {
+            background-color: #f0f0f0;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero { padding: 100px 20px 80px; }
+            .hero h1 { font-size: 2.5rem; }
+            .split-section { flex-direction: column-reverse; } 
+            .split-text { padding-top: 40px; }
+            .campaign-video { margin-top: -40px; }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <div class="container">
+            <h1>The Premium Placemat You Can Finally Put in the Dishwasher.</h1>
+            <p>Experience the heavy, acoustic clack of traditional hardboard mats, engineered from high-grade melamine to withstand daily life, messy eaters, and high-heat dishwasher cycles.</p>
+            <a href="#kickstarter-link" class="btn">Notify Me On Kickstarter</a>
+            <p style="margin-top: 15px; font-size: 0.9rem; color: #E8E4D9;">Lock in up to 40% off early-bird pricing.</p>
+        </div>
+    </section>
+
+    <section class="campaign-video">
+        <div class="container" style="text-align: center;">
+            <video controls preload="metadata" class="responsive-video" style="max-width: 900px; border: 4px solid #fff;">
+                <source src="video/intro.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </section>
+
+    <section class="container split-section">
+        <div class="split-text">
+            <h2>Stop Ruining Your Tableware.</h2>
+            <p>Traditional cork-backed board mats warp and peel the moment they soak in water. Flimsy silicone mats feel cheap and slip around. We wanted the elevated aesthetic of a premium home goods item with the zero-maintenance reality required by busy households, kids, and pets.</p>
+            <br>
+            <p><strong>The reality:</strong> Caked-on spaghetti sauce, spilled drinks, and daily family chaos shouldn't mean replacing your table settings every six months.</p>
+        </div>
+        <div class="split-image">
+            <video autoplay loop muted playsinline class="responsive-video">
+                <source src="video/family_mess.mp4" type="video/mp4">
+            </video>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 2.5rem; color: #2C3E35;">Engineered for Real Life.</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>Dishwasher Safe</h3>
+                    <p>Toss them in the top rack. Our In-Mold Labeling (IML) technology ensures the design is permanently sealed beneath a layer of protective melamine resin.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Heavy Duty "Clack"</h3>
+                    <p>Forget floppy plastics. These mats have the rigid, premium weight and acoustic feel of traditional hardboard mats.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Curated Aesthetics</h3>
+                    <p>No cartoon characters or generic prints. Clean lines, geometric shapes, and mid-century modern designs that complement your home renovation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container split-section split-reverse">
+        <div class="split-text">
+            <h2>Pristine in One Cycle.</h2>
+            <p>Say goodbye to scrubbing at the sink. Watch our solid, indestructible mat emerge from a heavy-duty dishwasher cycle looking completely brand new.</p>
+            <br>
+            <p>Because the design is fused directly into the structure, it never fades, clouds, or peels under high heat. The premium rigidity stays perfectly intact cycle after cycle.</p>
+        </div>
+        <div class="split-image">
+            <video autoplay loop muted playsinline class="responsive-video">
+                <source src="video/washed.mp4" type="video/mp4">
+            </video>
+        </div>
+    </section>
+
+    <section class="manufacturing">
+        <div class="container">
+            <h2>Fusion for Eternity: The Core Process.</h2>
+            <div class="manuf-infographic">
+                <img src="infographic_no_text.png" alt="An illustrated three-panel infographic detailing the high-heat, in-mold melamine compression process.">
+            </div>
+        </div>
+    </section>
+
+    <section class="explore-collection">
+        <div class="container">
+            <h2 style="text-align: center; color: #2C3E35; margin-bottom: 40px;">Explore the Collection</h2>
+            <div style="text-align: center; padding: 20px;">
+                <img src="image_5.png" alt="A high-angle panoramic photograph showing multiple premium melamine placemats arranged on a walnut table.">
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-bottom">
+        <div class="container">
+            <h2>Be the First to Upgrade Your Table.</h2>
+            <p style="margin-bottom: 20px; font-size: 1.2rem;">Our initial production run is strictly limited. Join the VIP list to secure your set.</p>
+            <a href="#kickstarter-link" class="btn">Back Us on Kickstarter</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 [Your Brand Name]. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
